@@ -209,7 +209,7 @@ func (c *Client) Connect(ctx context.Context, cp *Connect) (*Connack, error) {
 
 	ccp := cp.Packet()
 	ccp.ProtocolName = "MQTT"
-	ccp.ProtocolVersion = 5
+	ccp.ProtocolVersion = 4
 
 	c.debug.Println("sending CONNECT")
 	if _, err := ccp.WriteTo(c.Conn); err != nil {
