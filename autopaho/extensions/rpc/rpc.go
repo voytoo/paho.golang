@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/eclipse/paho.golang/autopaho"
-	"github.com/eclipse/paho.golang/paho"
+	"github.com/voytoo/paho.golang/autopaho"
+	"github.com/voytoo/paho.golang/paho"
 )
 
 // Handler is the struct providing a request/response functionality for the paho

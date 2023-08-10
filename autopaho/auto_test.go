@@ -15,8 +15,8 @@ import (
 
 	"go.uber.org/goleak"
 
-	"github.com/eclipse/paho.golang/autopaho/internal/testserver"
-	"github.com/eclipse/paho.golang/paho"
+	"github.com/voytoo/paho.golang/autopaho/internal/testserver"
+	"github.com/voytoo/paho.golang/paho"
 )
 
 const shortDelay = 500 * time.Millisecond // Used when something should happen pretty quickly (increase when debugging)

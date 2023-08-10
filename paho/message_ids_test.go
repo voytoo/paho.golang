@@ -3,15 +3,15 @@ package paho
 import (
 	"context"
 	"log"
+	"math"
+	"math/rand"
 	"os"
 	"testing"
 	"time"
-	"math"
-	"math/rand"
 
-	"github.com/eclipse/paho.golang/packets"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/voytoo/paho.golang/packets"
 	"golang.org/x/sync/semaphore"
 )
 
@@ -79,7 +79,7 @@ func TestMidExhaustion(t *testing.T) {
 	assert.ErrorIs(t, err, ErrorMidsExhausted)
 }
 
-func TestUsingFullBandOfMID(t *testing.T){
+func TestUsingFullBandOfMID(t *testing.T) {
 	m := &MIDs{index: make([]*CPContext, midMax)}
 	cp := &CPContext{}
 
@@ -109,7 +109,7 @@ func TestUsingFullBandOfMID(t *testing.T){
 	for i := 0; i < 60000; i++ {
 		r := uint16(rand.Intn(math.MaxUint16 + 1))
 		if r == 0 {
-		  r += 1
+			r += 1
 		}
 		m.Free(r)
 		h[r] = true
@@ -136,7 +136,7 @@ func TestMIDsGetAllIDs(t *testing.T) {
 // Expecting MIDs.Get(0) returns always nil, because 0 identifier is invalid and cannot be retained in MIDs.
 func TestMIDsGetZeroID(t *testing.T) {
 	m := &MIDs{index: make([]*CPContext, midMax)}
-	assert.NotPanics(t, func(){ m.Get(0) })
+	assert.NotPanics(t, func() { m.Get(0) })
 }
 
 func TestMIDsFreeAllIDs(t *testing.T) {
@@ -147,7 +147,7 @@ func TestMIDsFreeAllIDs(t *testing.T) {
 	}
 
 	for i := uint16(0); i < midMax; i++ {
-		m.Free(i+1)
+		m.Free(i + 1)
 	}
 
 	for i := uint16(0); i < midMax; i++ {
@@ -158,7 +158,7 @@ func TestMIDsFreeAllIDs(t *testing.T) {
 // Expecting MIDs.Free(0) always do nothing (no panic), because 0 identifier is invalid and ignored.
 func TestMIDsFreeZeroID(t *testing.T) {
 	m := &MIDs{index: make([]*CPContext, midMax)}
-	assert.NotPanics(t, func(){ m.Free(0) })
+	assert.NotPanics(t, func() { m.Free(0) })
 }
 
 func BenchmarkRequestMID(b *testing.B) {

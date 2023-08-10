@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/eclipse/paho.golang/paho"
+	"github.com/voytoo/paho.golang/paho"
 )
 
 // errorHandler provides the onClientError callback function that will be called by the Paho library. The sole aim

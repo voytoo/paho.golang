@@ -5,7 +5,7 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/eclipse/paho.golang/packets"
+	"github.com/voytoo/paho.golang/packets"
 )
 
 const (
@@ -84,7 +84,7 @@ func (m *MIDs) Request(c *CPContext) (uint16, error) {
 func (m *MIDs) Get(i uint16) *CPContext {
 	// 0 Packet Identifier is invalid but just in case handled with returning nil to avoid panic.
 	if i == 0 {
-	  return nil
+		return nil
 	}
 	m.Lock()
 	defer m.Unlock()
@@ -96,7 +96,7 @@ func (m *MIDs) Get(i uint16) *CPContext {
 func (m *MIDs) Free(i uint16) {
 	// 0 Packet Identifier is invalid but just in case handled to avoid panic.
 	if i == 0 {
-	  return
+		return
 	}
 	m.Lock()
 	m.index[i-1] = nil

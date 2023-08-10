@@ -11,7 +11,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/eclipse/paho.golang/packets"
+	"github.com/voytoo/paho.golang/packets"
 )
 
 // Implements a very limited (not standards compliant) MQTT server for use in tests.

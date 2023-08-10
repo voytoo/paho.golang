@@ -13,7 +13,7 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/eclipse/paho.golang/paho"
+	"github.com/voytoo/paho.golang/paho"
 )
 
 // AutoPaho is a wrapper around github.com/eclipse/paho.golang that simplifies the connection process; it automates
